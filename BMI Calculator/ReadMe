@@ -1,0 +1,20 @@
+This app is BMI Calculator.
+
+Takes the input of age (years) , weight (pounds) and height (ft'inc) from the user and calculats the BMI of the user based on the following Mathematical Formula:
+
+BMI = 703 × (mass (pounds)/height ^ 2 (inches))
+
+The above formula will calculate the BMI and will categories it as follows:and will show the result to the user and if the user is under
+
+Underweight: 
+If BMI < 18.5, the user will be shown a Red text against the BMI and will tell how much weight does the user needs to gain to have the normal BMI.
+
+Normal or Healthy Weight: 
+If 18.5 ≤ BMI < 25 , the user will be shown a Green text and a Good work message.
+
+Overweight: 
+If 25 ≤ BMI < 30, the user will be shown a Orange text and will tell how much weight does the user needs to loose to have the normal BMI.
+
+Obese: 
+If 30 ≤ BMI, the user will be shown a Purple text and will tell how much weight does the user needs to loose to have the normal BMI.
+
