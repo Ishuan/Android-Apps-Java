@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_years"
+        android:layout_alignBottom="@+id/editText_years"
+        android:layout_alignParentStart="true"
+        android:text="@string/Age"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/age"
+        android:padding="10dp"
+        android:text="@string/weight"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_feet"
+        android:layout_alignEnd="@+id/weight"
+        android:text="@string/height"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/editText_years"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:hint="@string/edittext_years"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editText_pounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/weight"
+        android:layout_alignBottom="@+id/weight"
+        android:layout_alignStart="@+id/editText_years"
+        android:ems="10"
+        android:hint="@string/edittext_pounds"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editText_feet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText_pounds"
+        android:layout_below="@+id/editText_years"
+        android:width="100dp"
+        android:ems="10"
+        android:hint="@string/edittext_feet"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/button_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editText_years"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="85dp"
+        android:padding="10dp"
+        android:text="@string/button_calculate" />
+
+    <EditText
+        android:id="@+id/editText_inches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText_pounds"
+        android:layout_below="@+id/editText_years"
+        android:width="100dp"
+        android:ems="10"
+        android:hint="@string/edittext_inches"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/Result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_calculate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/BMI"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/Result"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/NormalBMI"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/BMI"
+        android:layout_below="@+id/BMI" />
+
+    <TextView
+        android:id="@+id/lastLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button_calculate"
+        android:layout_below="@+id/NormalBMI"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/color"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/BMI"
+        android:layout_alignBottom="@+id/BMI"
+        android:layout_alignStart="@+id/editText_inches"
+        android:layout_marginStart="14dp" />
+
+</android.widget.RelativeLayout>

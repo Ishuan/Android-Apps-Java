@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="Age">Age</string>
+    <string name="button_calculate">Calculate</string>
+    <string name="weight">Weight</string>
+    <string name="edittext_years">Years</string>
+    <string name="edittext_pounds">Pounds</string>
+    <string name="height">Height</string>
+    <string name="bmiRange">Normal BMI Range: 18.5 to 25</string>
+    <string name="goodWork">Keep up the good work!!!</string>
+    <string name="normal">(Normal)</string>
+    <string name="underweight">(Underweight)</string>
+    <string name="obese">(Obese)</string>
+    <string name="overweight">(Overweight)</string>
+    <string name="Result">Result</string>
+    <string name="edittext_feet">Feet</string>
+    <string name="edittext_inches">Inches</string>
+</resources>
