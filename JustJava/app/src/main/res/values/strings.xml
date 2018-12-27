@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="toppings">Toppings</string>
+    <string name="whippedcream">Whipped Cream</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="qty">Quantity</string>
+    <string name="minusQty">-</string>
+    <string name="addQty">+</string>
+    <string name="defQty">2</string>
+    <string name="hintName">Name</string>
+    <string name="btnText">Order</string>
+    <string name="userName">Name:</string>
+    <string name="addWC">Add Whipped Cream?</string>
+    <string name="addChoc">Add Chocolate?</string>
+    <string name="quantity">Quantity:</string>
+    <string name="thanks">Thank You!</string>
+    <string name="total">Total: $</string>
+</resources>
