@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Password Generator</string>
+    <string name="passCount">Select Passwords Count:</string>
+    <string name="passLength">Select Passwords Length:</string>
+    <string name="pass">Password:</string>
+    <string name="passThread">Generate Passwords (Thread)</string>
+    <string name="passAsync">Generate Passwords (Async Task)</string>
+    <string name="prgrsDlgText">Generating Passwords ...</string>
+    <string name="one">1</string>
+    <string name="eight">8</string>
+</resources>
