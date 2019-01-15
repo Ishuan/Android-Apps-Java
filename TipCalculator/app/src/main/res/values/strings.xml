@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="bill">Bill Total</string>
+    <string name="enter">Enter Bill Value</string>
+    <string name="tip_percent">Tip %</string>
+    <string name="ten">10%</string>
+    <string name="fifteen">15%</string>
+    <string name="eighteen">18%</string>
+    <string name="custom">Custom</string>
+    <string name="exit">Exit</string>
+    <string name="tip">Tip</string>
+    <string name="total">Total</string>
+    <string name="tip_int">0.00</string>
+    <string name="total_int">0.00</string>
+    <string name="percent">%</string>
+    <string name="zero">0</string>
+</resources>

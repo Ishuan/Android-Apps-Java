@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/titleHint"
+        android:maxLength="50" />
+
+    <EditText
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:focusable="false"
+        android:hint="@string/dateHint"
+        android:inputType="date"/>
+
+    <EditText
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:focusable="false"
+        android:hint="@string/timeHint"
+        android:inputType="datetime"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/priority"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/priorityGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:checkedButton="@id/highRadBtn">
+
+        <RadioButton
+            android:id="@+id/highRadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/high"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/medRadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/meduim"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/lowRadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/low"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:text="@string/save"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+</LinearLayout>

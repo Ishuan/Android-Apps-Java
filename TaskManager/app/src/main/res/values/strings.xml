@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TaskManager</string>
+    <string name="titleHint">Title</string>
+    <string name="dateHint">Date</string>
+    <string name="timeHint">Time</string>
+    <string name="addTask">+</string>
+    <string name="priority">Priority:</string>
+    <string name="high">High</string>
+    <string name="meduim">Medium</string>
+    <string name="low">Low</string>
+    <string name="save">Save</string>
+    <string name="taskTitle">Task Title</string>
+    <string name="taskDate">Task Date</string>
+    <string name="taskTime">Task Time</string>
+    <string name="taskPriority">Task Priority</string>
+    <string name="numberTask">Task 0 of 0</string>
+    <string name="title_activity_edit_task">EditTask</string>
+</resources>
