@@ -32,7 +32,7 @@
         android:layout_above="@id/prevBtn"
         android:layout_below="@+id/searchBar"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_margin="3dp"
         android:scaleType="fitXY" />
 
     <ImageButton

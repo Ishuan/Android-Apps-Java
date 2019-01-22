@@ -1,5 +1,6 @@
 package com.example.android.photogallery;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,27 +28,67 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements URLAsync.SendImage {
 
     TextView searchWord;
     ImageView keyWordImage;
+    ImageButton prevImage;
+    ImageButton nextImage;
+    String[] keywordURLList;
+    int numberOfImages = 0;
+    int currentImage = 0;
+    Bitmap bitmap;
+    public  static Context context = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = getApplicationContext();
 
         Button goBtn = findViewById(R.id.goBtn);
         searchWord = findViewById(R.id.searchBar);
         keyWordImage = findViewById(R.id.imageView);
+        prevImage = findViewById(R.id.prevBtn);
+        nextImage = findViewById(R.id.nextBtn);
+
+        prevImage.setEnabled(false);
+        nextImage.setEnabled(false);
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (isConnected()) {
+                    currentImage = 0;
                     new GetKeywords().execute("http://dev.theappsdr.com/apis/photos/keywords.php");
                 } else
                     Toast.makeText(MainActivity.this, "No Internet Connected", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        nextImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(currentImage==numberOfImages-1)
+                    currentImage = 0;
+                else
+                    currentImage++;
+                new URLAsync(MainActivity.this,MainActivity.this)
+                        .execute("http://dev.theappsdr.com/apis/photos/index.php",
+                        searchWord.getText().toString(),String.valueOf(currentImage));
+            }
+        });
+
+        prevImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(currentImage==0)
+                    currentImage = numberOfImages-1;
+                else
+                    currentImage--;
+                new URLAsync(MainActivity.this,MainActivity.this)
+                        .execute("http://dev.theappsdr.com/apis/photos/index.php",
+                                searchWord.getText().toString(),String.valueOf(currentImage));
             }
         });
     }
@@ -59,6 +101,13 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void setImage(Bitmap b) {
+        this.bitmap = b;
+        if (bitmap != null)
+            keyWordImage.setImageBitmap(bitmap);
     }
 
     private class GetKeywords extends AsyncTask<String, Void, Void> {
@@ -112,11 +161,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class GETKeyWordURL extends AsyncTask<String,Void,Void>{
+    private class GETKeyWordURL extends AsyncTask<String, Void, Void> {
 
         String keyword;
-        String[] keywordURLList;
-        Bitmap bitmap;
+        Bitmap bitmap1;
+        ProgressDialog progressDialog = null;
 
         GETKeyWordURL(String keyword) {
             this.keyword = keyword;
@@ -128,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             StringBuilder builder = new StringBuilder();
             HttpURLConnection httpURLConnection = null;
             BufferedReader reader = null;
+            keywordURLList = null;
             try {
                 url = new URL(strings[0] + "?keyword=" + keyword);
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -138,15 +188,22 @@ public class MainActivity extends AppCompatActivity {
                     while ((line = reader.readLine()) != null)
                         builder.append(line);
                     keywordURLList = builder.toString().split(".jpg");
-                    url = new URL(keywordURLList[0]+".jpg");
+                    if (keywordURLList.length == 0)
+                        bitmap1 = null;
+
+                    else
+                        numberOfImages = keywordURLList.length;
+
+
+                    url = new URL(keywordURLList[0] + ".jpg");
                     httpURLConnection = (HttpURLConnection) url.openConnection();
-                    bitmap = BitmapFactory.decodeStream(httpURLConnection.getInputStream());
+                    bitmap1 = BitmapFactory.decodeStream(httpURLConnection.getInputStream());
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 httpURLConnection.disconnect();
                 try {
                     reader.close();
@@ -158,11 +215,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        protected void onPreExecute() {
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setMessage("Loading Dictionary...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
         protected void onPostExecute(Void aVoid) {
-            if(bitmap!=null)
-                keyWordImage.setImageBitmap(bitmap);        }
+            progressDialog.dismiss();
+            if (bitmap1 != null) {
+                keyWordImage.setImageBitmap(bitmap1);
+                prevImage.setEnabled(true);
+                nextImage.setEnabled(true);
+            }
+            else {
+                Toast.makeText(MainActivity.this, "No image for this keyword", Toast.LENGTH_SHORT).show();
+                keyWordImage.setImageBitmap(bitmap1);
+                prevImage.setEnabled(false);
+                nextImage.setEnabled(false);
+            }
+        }
     }
 }
-
-
-

@@ -1,50 +1,55 @@
 package com.example.android.photogallery;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
-public class URLAsync extends AsyncTask<String, Void, String> {
+public class URLAsync extends AsyncTask<String, Void, Bitmap> {
 
     private String[] newURL;
-    private String keyword;
-    Bitmap bitmap = null;
+    private SendImage setBitmap;
+    private ProgressDialog progressDialog;
+    private WeakReference<Context> context;
 
-    public URLAsync(String keyword) {
-        this.keyword = keyword;
+    public URLAsync(SendImage setBitmap, Context context) {
+        this.setBitmap = setBitmap;
+        this.context = new WeakReference<>(context);
     }
 
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
+        progressDialog = new ProgressDialog(context.get());
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage("Loading Photo...");
+        progressDialog.show();
     }
 
     @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
+    protected void onPostExecute(Bitmap s) {
+        progressDialog.dismiss();
+        setBitmap.setImage(s);
     }
 
     @Override
-    protected void onProgressUpdate(Void... values) {
-        super.onProgressUpdate(values);
-    }
-
-    @Override
-    protected String doInBackground(String... strings) {
+    protected Bitmap doInBackground(String... strings) {
+        Bitmap bitmap = null;
         URL url;
         StringBuilder builder = new StringBuilder();
-        HttpURLConnection httpURLConnection;
-        BufferedReader reader;
+        HttpURLConnection httpURLConnection = null;
+        BufferedReader reader = null;
         try {
-            url = new URL(strings[0] + "?keyword=" + keyword);
+            url = new URL(strings[0] + "?keyword=" + strings[1]);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.connect();
             if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -53,33 +58,29 @@ public class URLAsync extends AsyncTask<String, Void, String> {
                 while ((line = reader.readLine()) != null)
                     builder.append(line);
                 newURL = builder.toString().split(".jpg");
-                for (String imageURL : newURL) {
-                    System.out.println(imageURL);
-                   /* getImage(imageURL);*/
+                url = new URL(newURL[Integer.parseInt(strings[2])] + ".jpg");
+                httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.connect();
+                if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    bitmap = BitmapFactory.decodeStream(httpURLConnection.getInputStream());
                 }
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            httpURLConnection.disconnect();
         }
-        return null;
+        return bitmap;
     }
 
- /*   private void getImage(String stringURL) {
-        HttpURLConnection connection = null;
-        try {
-            URL imageLink = new URL(stringURL + ".jpg");
-            connection = (HttpURLConnection) imageLink.openConnection();
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                bitmap = BitmapFactory.decodeStream(connection.getInputStream());
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            connection.disconnect();
-        }
-    }*/
+    public interface SendImage {
+        void setImage(Bitmap bitmap);
+    }
 }
