@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/catText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/goBtn"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:layout_toStartOf="@id/goBtn"
+        android:hint="@string/categories"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/goBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:text="@string/Go"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catText"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/newsDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleText"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/newsImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/newsDesc"
+        android:layout_below="@id/newsDate"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/newsDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/prevBtn"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/newsCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/newsDesc"
+        android:layout_alignBottom="@id/prevBtn"
+        android:layout_toStartOf="@id/nextBtn"
+        android:layout_toEndOf="@id/prevBtn"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/prevBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/prev" />
+
+    <ImageButton
+        android:id="@+id/nextBtn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/next" />
+
+</RelativeLayout>

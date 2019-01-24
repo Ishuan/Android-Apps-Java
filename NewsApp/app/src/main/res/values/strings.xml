@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="categories">Show Categories</string>
+    <string name="Go">GO</string>
+    <string name="chooseCategory">Choose Category</string>
+    <string name="counter">out of</string>
+</resources>
