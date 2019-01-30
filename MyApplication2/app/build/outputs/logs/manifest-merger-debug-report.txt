@@ -1,0 +1,103 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/cfc5d4159f0293a0b27b2b32a9093798/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4fc9cb63c622829acf4ab75c1b17c8fc/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/273367b184f4ea352522e40cc9b1cf74/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/1024e9d9275af80404da845263106249/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ce418e3e737a0cfb7d8269af6810d5e0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/2e1879d824499814dd0f430e489cfb31/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/25ec574b083b255de70dee6b98f82611/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/4cdb44f11846b1321d1708ddd77ea906/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2b893bf85feac8d6adfe7e2dfe9b865c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/df6c4e91d1801b0b90519b5cf5b15104/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/cca67bcdf5c863116d1d2aa2b2bfde0c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f6d106590c5c380a12d927bf586379d4/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:3:5-48
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4fc9cb63c622829acf4ab75c1b17c8fc/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4fc9cb63c622829acf4ab75c1b17c8fc/AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.android.myapplication.MainActivity
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/cfc5d4159f0293a0b27b2b32a9093798/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/cfc5d4159f0293a0b27b2b32a9093798/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4fc9cb63c622829acf4ab75c1b17c8fc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/4fc9cb63c622829acf4ab75c1b17c8fc/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/273367b184f4ea352522e40cc9b1cf74/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/273367b184f4ea352522e40cc9b1cf74/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/1024e9d9275af80404da845263106249/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/1024e9d9275af80404da845263106249/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ce418e3e737a0cfb7d8269af6810d5e0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/ce418e3e737a0cfb7d8269af6810d5e0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/2e1879d824499814dd0f430e489cfb31/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/2e1879d824499814dd0f430e489cfb31/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/25ec574b083b255de70dee6b98f82611/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/25ec574b083b255de70dee6b98f82611/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/4cdb44f11846b1321d1708ddd77ea906/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/4cdb44f11846b1321d1708ddd77ea906/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2b893bf85feac8d6adfe7e2dfe9b865c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/2b893bf85feac8d6adfe7e2dfe9b865c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/df6c4e91d1801b0b90519b5cf5b15104/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/df6c4e91d1801b0b90519b5cf5b15104/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/cca67bcdf5c863116d1d2aa2b2bfde0c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/cca67bcdf5c863116d1d2aa2b2bfde0c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f6d106590c5c380a12d927bf586379d4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/f6d106590c5c380a12d927bf586379d4/AndroidManifest.xml:20:5-44
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/ishanagarwal/Android-Apps/MyApplication2/app/src/main/AndroidManifest.xml
