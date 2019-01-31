@@ -8,10 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
-import java.net.URI;
 import java.util.ArrayList;
 
 public class DetailActivity extends AppCompatActivity {
