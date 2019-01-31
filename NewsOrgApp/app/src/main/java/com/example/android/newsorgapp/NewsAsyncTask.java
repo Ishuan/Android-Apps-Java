@@ -60,7 +60,6 @@ public class NewsAsyncTask extends AsyncTask<String, Void, ArrayList<News>> {
                     parsedNewsList.add(newsObj);
                 }
             }
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -75,7 +74,6 @@ public class NewsAsyncTask extends AsyncTask<String, Void, ArrayList<News>> {
             }
             httpsURLConnection.disconnect();
         }
-
         return parsedNewsList;
     }
 

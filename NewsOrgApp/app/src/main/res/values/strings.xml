@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NewsOrgApp</string>
     <string name="mainCat">Categories</string>
+    <string name="detail">Detail Activity</string>
 </resources>

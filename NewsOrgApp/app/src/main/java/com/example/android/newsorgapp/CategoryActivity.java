@@ -1,8 +1,11 @@
 package com.example.android.newsorgapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,14 +32,24 @@ public class CategoryActivity extends AppCompatActivity implements NewsAsyncTask
     }
 
     @Override
-    public void parseNews(ArrayList<News> parsedNews) {
+    public void parseNews(final ArrayList<News> parsedNews) {
 
         if(parsedNews.size()==0)
             Toast.makeText(getApplicationContext(),"No News for this category",Toast.LENGTH_SHORT).show();
 
         NewsAdapter adapter = new NewsAdapter(getApplicationContext(),R.layout.list_view,parsedNews);
-        categoryListView = findViewById(R.id.categoryListView);
         categoryListView.setAdapter(adapter);
 
+        categoryListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(CategoryActivity.this,DetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("News",parsedNews);
+                bundle.putInt("newsIndex",i);
+                intent.putExtra("newsBundle",bundle);
+                startActivity(intent);
+            }
+        });
     }
 }

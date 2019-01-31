@@ -1,6 +1,10 @@
 package com.example.android.newsorgapp;
 
-public class News {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class News implements Serializable {
 
     private String newsTitle;
     private String newsPubDate;
