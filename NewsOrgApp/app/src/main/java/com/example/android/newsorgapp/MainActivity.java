@@ -25,10 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.mainCat);
 
         ListView catListView = findViewById(R.id.mainListView);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,catArray);
         catListView.setAdapter(adapter);
-
             catListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override

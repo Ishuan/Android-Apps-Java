@@ -1,6 +1,9 @@
 package com.example.android.newsorgapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
@@ -39,11 +44,24 @@ public class DetailActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent netIntent = new Intent();
-                    netIntent.setAction(Intent.ACTION_VIEW);
-                    netIntent.setData(Uri.parse(newsObj.getNewsLink()));
-                    startActivity(netIntent);
+                    if(isConnected()) {
+                        netIntent.setAction(Intent.ACTION_VIEW);
+                        netIntent.setData(Uri.parse(newsObj.getNewsLink()));
+                        startActivity(netIntent);
+                    } else
+                        Toast.makeText(getApplicationContext(),"No Internet",Toast.LENGTH_SHORT).show();
                 }
             });
         }
+    }
+
+    private boolean isConnected(){
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if(networkInfo == null || !networkInfo.isConnected())
+            return false;
+        else
+            return true;
     }
 }
