@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MovieDB</string>
+    <string name="searchmovies">Search Movies</string>
+    <string name="searchbtn">Search</string>
+    <string name="movie">Enter the Movie Name</string>
+    <string name="results">Results</string>"
+    <string name="released">Released in</string>
+    <string name="title">Title:</string>
+    <string name="rating">Rating:</string>
+    <string name="releasedDate">Release Date:</string>
+    <string name="ten">/10</string>
+    <string name="details">Movie Details</string>
+    <string name="overview">Overview:</string>
+</resources>
