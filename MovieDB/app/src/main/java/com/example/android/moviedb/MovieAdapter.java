@@ -47,6 +47,11 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         movieTitle.setText(movie.getMovieTitle());
         movieReleaseDate.setText(String.format("%s %s", getContext().getResources().getString(R.string.released)
                 , movie.getMovieReleaseDate().split("-")[0]));
+        if(movie.getIsFav())
+            favBtn.setImageResource(android.R.drawable.btn_star_big_on);
+        else
+            favBtn.setImageResource(android.R.drawable.btn_star_big_off);
+
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
