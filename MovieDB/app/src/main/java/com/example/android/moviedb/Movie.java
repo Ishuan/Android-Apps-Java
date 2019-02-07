@@ -9,6 +9,7 @@ public class Movie implements Serializable {
     private String movieOverview;
     private String movieRating;
     private String moviePosterPath;
+    private boolean isFav = false;
 
     public String getMovieTitle() {
         return movieTitle;
@@ -50,4 +51,11 @@ public class Movie implements Serializable {
         this.moviePosterPath = moviePosterPath;
     }
 
+    public boolean getIsFav() {
+        return isFav;
+    }
+
+    public void setIsFav(boolean fav) {
+        isFav = fav;
+    }
 }

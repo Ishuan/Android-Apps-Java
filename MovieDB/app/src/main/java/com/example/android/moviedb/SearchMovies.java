@@ -27,6 +27,7 @@ public class SearchMovies extends AppCompatActivity implements movieAsyncTask.Mo
         setTitle(R.string.searchmovies);
 
         Button searchBtn = findViewById(R.id.searchBtn);
+        Button favBtn = findViewById(R.id.tempFav);
         final EditText movieTitle = findViewById(R.id.movieName);
         movieListView = findViewById(R.id.movieListView);
 
@@ -44,6 +45,14 @@ public class SearchMovies extends AppCompatActivity implements movieAsyncTask.Mo
                     else
                         new movieAsyncTask(SearchMovies.this,SearchMovies.this)
                                 .execute(url+"?query="+query+"&api_key="+apiKey+"&page=1");
+                }
+            });
+
+            favBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(),FavoriteMovies.class);
+                    startActivity(intent);
                 }
             });
         }else
