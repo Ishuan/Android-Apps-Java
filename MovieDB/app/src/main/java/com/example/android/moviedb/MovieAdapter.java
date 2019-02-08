@@ -3,6 +3,7 @@ package com.example.android.moviedb;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,15 +23,15 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class MovieAdapter extends ArrayAdapter<Movie> {
 
-    private boolean favFlag = false;
-    private ArrayList<Movie> favMovieList  = new ArrayList<>();
+    private ArrayList<Movie> favMovieList = new ArrayList<>();
+    public static final String KEY_JSON = "movie";
 
     public MovieAdapter(Context context, int resource, List<Movie> objects) {
         super(context, resource, objects);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         final Movie movie = getItem(position);
 
@@ -47,7 +48,8 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         movieTitle.setText(movie.getMovieTitle());
         movieReleaseDate.setText(String.format("%s %s", getContext().getResources().getString(R.string.released)
                 , movie.getMovieReleaseDate().split("-")[0]));
-        if(movie.getIsFav())
+
+        if (movie.getIsFav())
             favBtn.setImageResource(android.R.drawable.btn_star_big_on);
         else
             favBtn.setImageResource(android.R.drawable.btn_star_big_off);
@@ -55,32 +57,38 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (!movie.getIsFav()) {
-                    movie.setIsFav(true);
-                    Toast.makeText(getContext(), "Movie mark as Favourite", Toast.LENGTH_SHORT).show();
-                    favBtn.setImageResource(android.R.drawable.btn_star_big_on);
-                    SharedPreferences sharedPreferences = getContext().getSharedPreferences("favList", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    favMovieList.add(movie);
-                    Gson gson = new Gson();
-                    String json  = gson.toJson(favMovieList);
-                    editor.putString("movie",json);
-                    editor.apply();
-                } else {
-                    movie.setIsFav(false);
-                    Toast.makeText(getContext(), "Movie mark Un-Favourite", Toast.LENGTH_SHORT).show();
-                    favBtn.setImageResource(android.R.drawable.btn_star_big_off);
-                    SharedPreferences sharedPreferences = getContext().getSharedPreferences("favList", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    favMovieList.remove(movie);
-                    Gson gson = new Gson();
-                    String json  = gson.toJson(favMovieList);
-                    editor.putString("movie",json);
-                    editor.apply();
+                if (String.valueOf(getContext()).contains("FavoriteMovies")) {
+                    Toast.makeText(getContext(), "Movie marked UnFavourite", Toast.LENGTH_SHORT).show();
+                    markMovieFav(false,movie);
+                    FavoriteMovies.favMovieAdapter.notifyDataSetChanged();
+                } else if (String.valueOf(getContext()).contains("SearchMovies")) {
+                    if (!movie.getIsFav()) {
+                        movie.setIsFav(true);
+                        favBtn.setImageResource(android.R.drawable.btn_star_big_on);
+                        Toast.makeText(getContext(), "Movie marked Favourite", Toast.LENGTH_SHORT).show();
+                        markMovieFav(true,movie);
+                    } else {
+                        movie.setIsFav(false);
+                        favBtn.setImageResource(android.R.drawable.btn_star_big_off);
+                        Toast.makeText(getContext(), "Movie marked Un-favorite", Toast.LENGTH_SHORT).show();
+                        markMovieFav(false,movie);
+                    }
                 }
             }
         });
         return convertView;
+    }
+
+    private void markMovieFav(boolean favFlag,Movie favMov) {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("favList", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if (favFlag)
+            favMovieList.add(favMov);
+        else
+            favMovieList.remove(favMov);
+        Gson gson = new Gson();
+        String json = gson.toJson(favMovieList);
+        editor.putString(KEY_JSON, json);
+        editor.apply();
     }
 }

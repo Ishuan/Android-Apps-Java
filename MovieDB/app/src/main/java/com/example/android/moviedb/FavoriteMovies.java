@@ -27,8 +27,8 @@ import java.util.Comparator;
 public class FavoriteMovies extends AppCompatActivity {
 
     private ArrayList<Movie> favMovieList = new ArrayList<>();
-    private   ListView favListView;
-    private   MovieAdapter movieAdapter;
+    private ListView favListView;
+    static MovieAdapter favMovieAdapter;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,15 +37,10 @@ public class FavoriteMovies extends AppCompatActivity {
 
         favListView = findViewById(R.id.favListView);
 
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("favList", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString("movie", "");
-        Type type = new TypeToken<ArrayList<Movie>>() {
-        }.getType();
-        favMovieList = gson.fromJson(json, type);
+        favMovieList = getMovieList();
 
-        movieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
-        favListView.setAdapter(movieAdapter);
+        favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+        favListView.setAdapter(favMovieAdapter);
 
         favListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,6 +53,15 @@ public class FavoriteMovies extends AppCompatActivity {
                     Toast.makeText(FavoriteMovies.this, "No Internet", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private ArrayList<Movie> getMovieList(){
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("favList", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString(MovieAdapter.KEY_JSON, "");
+        Type type = new TypeToken<ArrayList<Movie>>() {}.getType();
+        ArrayList<Movie> movieList = gson.fromJson(json, type);
+        return movieList;
     }
 
     private boolean isConnected() {
@@ -87,24 +91,32 @@ public class FavoriteMovies extends AppCompatActivity {
                 finishAffinity();
                 return true;
             case R.id.favRating:
-                Collections.sort(favMovieList, new Comparator<Movie>() {
-                    @Override
-                    public int compare(Movie movie, Movie t1) {
-                        return (Float.compare(t1.getMovieRating(),movie.getMovieRating()));
-                    }
-                });
-                movieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
-                favListView.setAdapter(movieAdapter);
+                if (favMovieList.size() < 1)
+                    Toast.makeText(FavoriteMovies.this, "No Movies to Sort", Toast.LENGTH_SHORT).show();
+                else {
+                    Collections.sort(favMovieList, new Comparator<Movie>() {
+                        @Override
+                        public int compare(Movie movie, Movie t1) {
+                            return (Float.compare(t1.getMovieRating(), movie.getMovieRating()));
+                        }
+                    });
+                    favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+                    favListView.setAdapter(favMovieAdapter);
+                }
                 return true;
             case R.id.favPopularity:
-                Collections.sort(favMovieList, new Comparator<Movie>() {
-                    @Override
-                    public int compare(Movie movie, Movie t1) {
-                        return (Float.compare(t1.getMoviePopularity(),movie.getMoviePopularity()));
-                    }
-                });
-                movieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
-                favListView.setAdapter(movieAdapter);
+                if (favMovieList.size() < 1)
+                    Toast.makeText(FavoriteMovies.this, "No Movies to Sort", Toast.LENGTH_SHORT).show();
+                else {
+                    Collections.sort(favMovieList, new Comparator<Movie>() {
+                        @Override
+                        public int compare(Movie movie, Movie t1) {
+                            return (Float.compare(t1.getMoviePopularity(), movie.getMoviePopularity()));
+                        }
+                    });
+                    favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+                    favListView.setAdapter(favMovieAdapter);
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

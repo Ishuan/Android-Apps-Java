@@ -24,7 +24,8 @@ public class SearchMovies extends AppCompatActivity implements movieAsyncTask.Mo
 
     private ListView movieListView;
     private String query;
-    private ArrayList<Movie> parsedMovieList;
+    private ArrayList<Movie> parsedMovieList = new ArrayList<>();
+    private MovieAdapter movieAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,7 @@ public class SearchMovies extends AppCompatActivity implements movieAsyncTask.Mo
             Toast.makeText(SearchMovies.this, "No Result", Toast.LENGTH_SHORT).show();
             movieListView.setAdapter(null);
         } else {
-            MovieAdapter movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
+            movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
             movieListView.setAdapter(movieAdapter);
             movieListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -106,24 +107,32 @@ public class SearchMovies extends AppCompatActivity implements movieAsyncTask.Mo
                 startActivity(intent);
                 return true;
             case (R.id.homeRating):
-                Collections.sort(parsedMovieList, new Comparator<Movie>() {
-                    @Override
-                    public int compare(Movie movie, Movie t1) {
-                        return (Float.compare(t1.getMovieRating(),movie.getMovieRating()));
-                    }
-                });
-                MovieAdapter movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
-                movieListView.setAdapter(movieAdapter);
+                if (parsedMovieList.size() < 1)
+                    Toast.makeText(SearchMovies.this, "No Movies to Sort", Toast.LENGTH_SHORT).show();
+                else {
+                    Collections.sort(parsedMovieList, new Comparator<Movie>() {
+                        @Override
+                        public int compare(Movie movie, Movie t1) {
+                            return (Float.compare(t1.getMovieRating(), movie.getMovieRating()));
+                        }
+                    });
+                    movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
+                    movieListView.setAdapter(movieAdapter);
+                }
                 return true;
             case (R.id.homePopularity):
-                Collections.sort(parsedMovieList, new Comparator<Movie>() {
-                    @Override
-                    public int compare(Movie movie, Movie t1) {
-                        return (Float.compare(t1.getMoviePopularity(),movie.getMoviePopularity()));
-                    }
-                });
-                movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
-                movieListView.setAdapter(movieAdapter);
+                if (parsedMovieList.size() < 1)
+                    Toast.makeText(SearchMovies.this, "No Movies to Sort", Toast.LENGTH_SHORT).show();
+                else {
+                    Collections.sort(parsedMovieList, new Comparator<Movie>() {
+                        @Override
+                        public int compare(Movie movie, Movie t1) {
+                            return (Float.compare(t1.getMoviePopularity(), movie.getMoviePopularity()));
+                        }
+                    });
+                    movieAdapter = new MovieAdapter(SearchMovies.this, android.R.layout.simple_list_item_1, parsedMovieList);
+                    movieListView.setAdapter(movieAdapter);
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

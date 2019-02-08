@@ -10,7 +10,7 @@ public class Movie implements Serializable {
     private Float movieRating;
     private String moviePosterPath;
     private Float moviePopularity;
-    private boolean isFav = false;
+    private boolean isFav;
 
     public String getMovieTitle() {
         return movieTitle;
