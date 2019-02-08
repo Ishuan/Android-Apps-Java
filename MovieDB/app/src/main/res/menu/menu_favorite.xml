@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/favHome"
+        android:title="@string/home" />
+
+    <item android:id="@+id/favRating"
+        android:title="@string/sortRating" />
+
+    <item android:id="@+id/favPopularity"
+        android:title="@string/sortPopularity" />
+
+    <item android:id="@+id/favQuit"
+        android:title="@string/quit" />
+
+</menu>

@@ -51,8 +51,9 @@ public class movieAsyncTask extends AsyncTask<String, Void, ArrayList<Movie>> {
                     movie.setMovieTitle(movieObject.getString("title"));
                     movie.setMovieReleaseDate(movieObject.getString("release_date"));
                     movie.setMovieOverview(movieObject.getString("overview"));
-                    movie.setMovieRating(movieObject.getString("vote_average"));
+                    movie.setMovieRating((float) movieObject.getDouble("vote_average"));
                     movie.setMoviePosterPath(movieObject.getString("poster_path"));
+                    movie.setMoviePopularity((float) movieObject.getDouble("popularity"));
 
                     movieList.add(movie);
                 }

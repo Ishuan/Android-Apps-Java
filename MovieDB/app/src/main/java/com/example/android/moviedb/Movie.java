@@ -7,8 +7,9 @@ public class Movie implements Serializable {
     private String movieTitle;
     private String movieReleaseDate;
     private String movieOverview;
-    private String movieRating;
+    private Float movieRating;
     private String moviePosterPath;
+    private Float moviePopularity;
     private boolean isFav = false;
 
     public String getMovieTitle() {
@@ -35,11 +36,11 @@ public class Movie implements Serializable {
         this.movieOverview = movieOverview;
     }
 
-    public String getMovieRating() {
+    public Float getMovieRating() {
         return movieRating;
     }
 
-    public void setMovieRating(String movieRating) {
+    public void setMovieRating(Float movieRating) {
         this.movieRating = movieRating;
     }
 
@@ -49,6 +50,14 @@ public class Movie implements Serializable {
 
     public void setMoviePosterPath(String moviePosterPath) {
         this.moviePosterPath = moviePosterPath;
+    }
+
+    public float getMoviePopularity() {
+        return moviePopularity;
+    }
+
+    public void setMoviePopularity(float moviePopularity) {
+        this.moviePopularity = moviePopularity;
     }
 
     public boolean getIsFav() {

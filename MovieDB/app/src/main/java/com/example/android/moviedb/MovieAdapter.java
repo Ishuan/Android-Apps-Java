@@ -68,7 +68,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
                     editor.putString("movie",json);
                     editor.apply();
                 } else {
-                    //Un-favourite
                     movie.setIsFav(false);
                     Toast.makeText(getContext(), "Movie mark Un-Favourite", Toast.LENGTH_SHORT).show();
                     favBtn.setImageResource(android.R.drawable.btn_star_big_off);
@@ -79,7 +78,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
                     String json  = gson.toJson(favMovieList);
                     editor.putString("movie",json);
                     editor.apply();
-
                 }
             }
         });
