@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,7 +29,7 @@ public class FavoriteMovies extends AppCompatActivity {
 
     private ArrayList<Movie> favMovieList = new ArrayList<>();
     private ListView favListView;
-    static MovieAdapter favMovieAdapter;
+    static FavMovieAdapter favMovieAdapter;
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,10 @@ public class FavoriteMovies extends AppCompatActivity {
 
         favMovieList = getMovieList();
 
-        favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+        for(Movie mov:favMovieList)
+            Log.d("Demo","Data in fav movie List: "+mov.getMovieTitle()+" "+mov.getIsFav());
+
+        favMovieAdapter = new FavMovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
         favListView.setAdapter(favMovieAdapter);
 
         favListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,7 +104,7 @@ public class FavoriteMovies extends AppCompatActivity {
                             return (Float.compare(t1.getMovieRating(), movie.getMovieRating()));
                         }
                     });
-                    favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+                    favMovieAdapter = new FavMovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
                     favListView.setAdapter(favMovieAdapter);
                 }
                 return true;
@@ -114,7 +118,7 @@ public class FavoriteMovies extends AppCompatActivity {
                             return (Float.compare(t1.getMoviePopularity(), movie.getMoviePopularity()));
                         }
                     });
-                    favMovieAdapter = new MovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
+                    favMovieAdapter = new FavMovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
                     favListView.setAdapter(favMovieAdapter);
                 }
                 return true;
