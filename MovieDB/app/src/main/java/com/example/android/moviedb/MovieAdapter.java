@@ -52,17 +52,10 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         movieReleaseDate.setText(String.format("%s %s", getContext().getResources().getString(R.string.released)
                 , movie.getMovieReleaseDate().split("-")[0]));
 
-        ArrayList<Movie> favMovies = getMovieList();
-        Log.d("Demo", "Data in MovieAdapter: " + favMovies.size());
-
-        if (getMovieList().contains(movie))
-            favBtn.setImageResource(android.R.drawable.btn_star_big_on);
-        else {
             if (movie.getIsFav())
                 favBtn.setImageResource(android.R.drawable.btn_star_big_on);
             else
                 favBtn.setImageResource(android.R.drawable.btn_star_big_off);
-        }
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,14 +87,5 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
         String json = gson.toJson(favMovieList);
         editor.putString(KEY_JSON, json);
         editor.apply();
-    }
-
-    private ArrayList<Movie> getMovieList() {
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("favList", MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = sharedPreferences.getString(MovieAdapter.KEY_JSON, "");
-        Type type = new TypeToken<ArrayList<Movie>>() {
-        }.getType();
-        return gson.fromJson(json, type);
     }
 }
