@@ -40,9 +40,6 @@ public class FavoriteMovies extends AppCompatActivity {
 
         favMovieList = getMovieList();
 
-        for(Movie mov:favMovieList)
-            Log.d("Demo","Data in fav movie List: "+mov.getMovieTitle()+" "+mov.getIsFav());
-
         favMovieAdapter = new FavMovieAdapter(FavoriteMovies.this, android.R.layout.simple_list_item_1, favMovieList);
         favListView.setAdapter(favMovieAdapter);
 

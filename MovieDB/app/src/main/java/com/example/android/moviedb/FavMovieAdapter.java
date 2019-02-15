@@ -14,17 +14,16 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class FavMovieAdapter extends ArrayAdapter<Movie> {
 
-    private List<Movie> favMovieList;
-
     public FavMovieAdapter(Context context, int resource, List<Movie> objects) {
         super(context, resource, objects);
-        favMovieList = objects;
+        MovieAdapter.favMovieList = (ArrayList<Movie>) objects;
     }
 
     @Override
@@ -53,7 +52,7 @@ public class FavMovieAdapter extends ArrayAdapter<Movie> {
                 favMovieBtn.setImageResource(android.R.drawable.btn_star_big_off);
                 Toast.makeText(getContext(), "Movie marked as Un-Favorite", Toast.LENGTH_SHORT).show();
                 favMovie.setIsFav(false);
-                favMovieList.remove(favMovie);
+                MovieAdapter.favMovieList.remove(favMovie);
                 updateFavMovieList();
                 FavoriteMovies.favMovieAdapter.notifyDataSetChanged();
             }
@@ -66,7 +65,7 @@ public class FavMovieAdapter extends ArrayAdapter<Movie> {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("favList", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(favMovieList);
+        String json = gson.toJson(MovieAdapter.favMovieList);
         editor.putString(MovieAdapter.KEY_JSON, json);
         editor.apply();
     }
