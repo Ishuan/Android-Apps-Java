@@ -4,7 +4,7 @@
             "outputFile": "/Users/ishanagarwal/Android-Apps/Earthquake/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/806c904e80e4d8e4821f295eff3b2a8b/res/values-v23/values-v23.xml",
+                    "source": "/Users/ishanagarwal/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/82b267cdca68062e6774aa1f3fb37da3/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
