@@ -1,2 +1,2 @@
 # Android-Apps
-This is the repo which will contain the apps developed by me for Android.
+This is the repo which contains the Android apps developed in JAVA.
